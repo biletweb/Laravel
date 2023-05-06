@@ -13,12 +13,10 @@
             <div class="col">
                 <div class="card mb-4 rounded-3 shadow-sm">
                     <div class="card-header py-3">
-{{--                        <h4 class="my-0 fw-normal">{{ $post->title }}</h4>--}}
                         <h4 class="my-0 fw-normal">{{ str()->limit($post->title, 36, '...')  }}</h4>
                     </div>
                     <div class="card-body">
                         <ul class="list-unstyled mt-3 mb-4">
-{{--                            <li>{{ $post->content }}</li>--}}
                             <li>{{ str()->limit($post->content, 255, '...')  }}</li>
                         </ul>
                         <hr>
@@ -30,7 +28,7 @@
                                     </svg>
                                 </a>
                             </div>
-                            <small class="text-body-secondary">{{ $post->created_at->format('d.m.y') }}</small>
+                            <small class="text-body-secondary">{{ $post->created_at->diffForHumans() }}</small>
                         </div>
                     </div>
                 </div>

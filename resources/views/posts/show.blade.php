@@ -6,8 +6,19 @@
     <div class="p-5 mb-4 bg-body-tertiary rounded-3">
         <div class="container-fluid">
             <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                    <small class="text-body-secondary rounded float-start">{{ __('Category') }}: {{ $post->category->title }}</small>
+                <div class="btn-group align-items-center">
+                    <span title="{{ __('Category') }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-view-list me-2" viewBox="0 0 16 16">
+                            <path d="M3 4.5h10a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1H3zM1 2a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 2zm0 12a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 14z"/>
+                        </svg>
+                    </span>
+                    <small class="text-body-secondary rounded float-start me-4">{{ $post->category->title }}</small>
+{{--                    <span title="{{ __('User') }}">--}}
+{{--                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person me-2" viewBox="0 0 16 16">--}}
+{{--                        <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>--}}
+{{--                    </svg>--}}
+{{--                    </span>--}}
+{{--                    <small class="text-body-secondary rounded float-start me-4">admin</small>--}}
                 </div>
                 {{--                <div class="d-grid gap-2 d-md-flex justify-content-md-end">--}}
                 {{--                    <a class="text-body-secondary me-2" href="#" title="{{ __('Like') }}">--}}
@@ -28,12 +39,12 @@
             <hr>
             <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group d-flex justify-content-between align-items-center">
-                    <a class="text-body-secondary me-2" href="{{ redirect()->back()->getTargetUrl() }}" title="{{ __('Back') }}">
+                    <a class="text-body-secondary me-4" href="{{ redirect()->back()->getTargetUrl() }}" title="{{ __('Back') }}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"/>
                         </svg>
                     </a>
-                    <a class="text-success me-1" href="{{ route('posts.edit', $post->id) }}" title="{{ __('Edit') }}">
+                    <a class="text-success me-2" href="{{ route('posts.edit', $post->id) }}" title="{{ __('Edit') }}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                             <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                             <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
@@ -42,7 +53,7 @@
                     <form method="POST" action="{{ route('posts.destroy', $post->id) }}">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="bg-transparent border-0">
+                        <button type="submit" class="bg-transparent border-0 p-0">
                             <a class="text-danger me-2" title="{{ __('Delete') }}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                     <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
@@ -53,7 +64,12 @@
                     </form>
                 </div>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <small class="text-body-secondary">{{ __('Published') }}: {{ $post->created_at->format('d.m.y') }}</small>
+                    <small class="text-body-secondary">
+                        {{ __('Published') }}: {{ $post->created_at->diffForHumans() }}<br>
+                        @if($post->created_at != $post->updated_at)
+                                {{ __('Published Edit') }}: {{ $post->updated_at->diffForHumans() }}
+                        @endif
+                    </small>
                 </div>
             </div>
         </div>
