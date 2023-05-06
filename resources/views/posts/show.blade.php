@@ -23,8 +23,8 @@
                 {{--                </div>--}}
             </div>
             <hr>
-            <h2 class="fw-bold">{{ $post->title }}</h2>
-            <p class="col-md-12 fs-4">{{ $post->content }}</p>
+            <h4 class="fw-bold">{{ $post->title }}</h4>
+            <p class="col-md-12 fs-5">{{ $post->content }}</p>
             <hr>
             <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group d-flex justify-content-between align-items-center">

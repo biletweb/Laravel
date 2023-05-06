@@ -8,16 +8,18 @@
     @if (session()->has('message'))
         <div class="alert alert-info text-center mb-4">{{ __(session()->get('message')) }}</div>
     @endif
-    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+    <div class="row row-cols-1 row-cols-md-2 mb-2">
         @foreach($posts as $post)
             <div class="col">
                 <div class="card mb-4 rounded-3 shadow-sm">
                     <div class="card-header py-3">
-                        <h4 class="my-0 fw-normal">{{ $post->title }}</h4>
+{{--                        <h4 class="my-0 fw-normal">{{ $post->title }}</h4>--}}
+                        <h4 class="my-0 fw-normal">{{ str()->limit($post->title, 36, '...')  }}</h4>
                     </div>
                     <div class="card-body">
                         <ul class="list-unstyled mt-3 mb-4">
-                            <li>{{ $post->content }}</li>
+{{--                            <li>{{ $post->content }}</li>--}}
+                            <li>{{ str()->limit($post->content, 255, '...')  }}</li>
                         </ul>
                         <hr>
                         <div class="d-flex justify-content-between align-items-center">

@@ -10,7 +10,7 @@ class CategoryController extends Controller
 {
     public function index($category_id)
     {
-        $posts = Post::where('category_id', $category_id)->orderBy('id', 'DESC')->paginate(9);
+        $posts = Post::where('category_id', $category_id)->orderBy('id', 'DESC')->paginate(10);
         return view('posts.index', compact('posts'));
     }
 }
