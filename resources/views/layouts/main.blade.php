@@ -73,6 +73,9 @@
             @if (session()->has('message'))
                 <div class="alert alert-info text-center mb-4">{{ __(session()->get('message')) }}</div>
             @endif
+            @if (session()->has('error_message'))
+                <div class="alert alert-danger text-center mb-4">{{ __(session()->get('error_message')) }}</div>
+            @endif
             @yield('content')
         </div>
     </div>
