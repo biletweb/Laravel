@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Post\Category\CategoryController;
 use App\Http\Controllers\Post\CreateController;
 use App\Http\Controllers\Post\DestroyController;
@@ -32,3 +33,7 @@ Route::get('/posts/{post}', [ShowController::class, 'show'])->name('posts.show')
 Route::get('/posts/{post}/edit', [EditController::class, 'edit'])->name('posts.edit');
 Route::patch('/posts/{post}', [UpdateController::class, 'update'])->name('posts.update');
 Route::delete('/posts/{post}', [DestroyController::class, 'destroy'])->name('posts.destroy');
+
+Auth::routes();
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
