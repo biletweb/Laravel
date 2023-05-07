@@ -12,6 +12,7 @@ class StoreController extends Controller
     public function store(PostRequest $request)
     {
         $data = $request->validated();
+        $data['user_id'] = auth()->user()->id;
         Post::create($data);
         session()->flash('message', "Post successfully create");
         return redirect()->route('posts.index');

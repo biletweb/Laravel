@@ -63,6 +63,9 @@
             @include('include.menu')
         </div>
         <div class="col-9">
+            @if (session()->has('message'))
+                <div class="alert alert-info text-center mb-4">{{ __(session()->get('message')) }}</div>
+            @endif
             @yield('content')
         </div>
     </div>

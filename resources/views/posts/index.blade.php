@@ -5,9 +5,6 @@
             {{ __('No Results') }}
         </div>
     @endif
-    @if (session()->has('message'))
-        <div class="alert alert-info text-center mb-4">{{ __(session()->get('message')) }}</div>
-    @endif
     <div class="row row-cols-1 row-cols-md-2 mb-2">
         @foreach($posts as $post)
             <div class="col">
