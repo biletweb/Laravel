@@ -11,7 +11,7 @@ class SearchController extends Controller
     public function search(Request $request)
     {
         $s = $request->s;
-        $posts = Post::where('content', 'LIKE', "%{$s}%")->orderBy('id', 'DESC')->paginate(9);
+        $posts = Post::where('content', 'LIKE', "%{$s}%")->orderBy('id', 'DESC')->paginate(10);
         return view('posts.index', compact('posts'));
     }
 }

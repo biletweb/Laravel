@@ -38,7 +38,7 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="{{ route('posts.create') }}">{{ __('Add Post') }}</a></li>
-                                    <li>
+                                    <li class="container">
                                         <hr class="dropdown-divider">
                                     </li>
                                     <li><a class="dropdown-item" href="#">Something else here</a></li>

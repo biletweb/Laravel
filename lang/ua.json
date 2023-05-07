@@ -25,5 +25,7 @@
     "No Results": "На жаль, немає результатів для відображення",
     "Post successfully delete": "Пост успішно видалено",
     "Post successfully update": "Пост успішно оновлено",
-    "Post successfully create": "Пост успішно створено"
+    "Post successfully create": "Пост успішно створено",
+    "Published Edit": "Внесені зміни",
+    "User": "Користувач"
 }

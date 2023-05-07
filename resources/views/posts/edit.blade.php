@@ -14,21 +14,12 @@
                     @enderror
                 </div>
                 <div class="col">
-                    <select name="category" class="form-select">
-                        <option selected>{{ __('Select Category Post') }}</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select name="category_id" class="form-select">
+                        @foreach($categories as $category)
+                            <option value="{{ $category->id }}" @selected($category->id == $post->category->id)>{{ $category->title }}</option>
+                        @endforeach
                     </select>
-                    {{--                    <select name="category" class="form-select">--}}
-                    {{--                        <option selected>{{ __('Select Category Post') }}</option>--}}
-                    {{--                        @foreach ($categories as $category)--}}
-                    {{--                            <option value="{{ $category->id }}" @selected(old('category') == $category->id)>--}}
-                    {{--                                {{ $category->title }}--}}
-                    {{--                            </option>--}}
-                    {{--                        @endforeach--}}
-                    {{--                    </select>--}}
-                    @error('category')
+                    @error('category_id')
                     <div class="alert alert-danger mt-1">{{ $message }}</div>
                     @enderror
                 </div>
