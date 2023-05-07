@@ -27,5 +27,8 @@
     "Post successfully update": "Пост успішно оновлено",
     "Post successfully create": "Пост успішно створено",
     "Published Edit": "Внесені зміни",
-    "User": "Користувач"
+    "User": "Користувач",
+    "Logout": "Вихід",
+    "Hello": "Привіт",
+    "Dashboard": "Особистий кабінет"
 }

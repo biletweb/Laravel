@@ -23,17 +23,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', [PostController::class, 'index'])->name('posts.index');
 Route::get('/search', [SearchController::class, 'search'])->name('search');
 Route::get('/category/{category_id}/posts/', [CategoryController::class, 'index'])->name('posts.category');
 
-Route::get('/', [PostController::class, 'index'])->name('posts.index');
-Route::get('/posts/create', [CreateController::class, 'create'])->name('posts.create');
-Route::post('/posts', [StoreController::class, 'store'])->name('posts.store');
-Route::get('/posts/{post}', [ShowController::class, 'show'])->name('posts.show');
-Route::get('/posts/{post}/edit', [EditController::class, 'edit'])->name('posts.edit');
-Route::patch('/posts/{post}', [UpdateController::class, 'update'])->name('posts.update');
-Route::delete('/posts/{post}', [DestroyController::class, 'destroy'])->name('posts.destroy');
+Route::middleware('auth')->group(function (){
+    Route::get('/posts/create', [CreateController::class, 'create'])->name('posts.create');
+    Route::post('/posts', [StoreController::class, 'store'])->name('posts.store');
+    Route::get('/posts/{post}', [ShowController::class, 'show'])->name('posts.show');
+    Route::get('/posts/{post}/edit', [EditController::class, 'edit'])->name('posts.edit');
+    Route::patch('/posts/{post}', [UpdateController::class, 'update'])->name('posts.update');
+    Route::delete('/posts/{post}', [DestroyController::class, 'destroy'])->name('posts.destroy');
+
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+});
 
 Auth::routes();
-
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

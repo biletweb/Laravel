@@ -8,13 +8,15 @@
             <hr>
             <div class="row mt-4">
                 <div class="col">
-                    <input type="text" name="title" class="form-control" value="{{ $post->title }}" placeholder="{{ __('Title Post') }}">
+                    <label for="title" class="form-label">{{ __('Title Post') }}</label>
+                    <input type="text" name="title" class="form-control" id="title" value="{{ $post->title }}">
                     @error('title')
                     <div class="alert alert-danger mt-1">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="col">
-                    <select name="category_id" class="form-select">
+                    <label for="category_id" class="form-label">{{ __('Select Category Post') }}</label>
+                    <select name="category_id" class="form-select" id="category_id">
                         @foreach($categories as $category)
                             <option value="{{ $category->id }}" @selected($category->id == $post->category->id)>{{ $category->title }}</option>
                         @endforeach
@@ -25,7 +27,8 @@
                 </div>
             </div>
             <div class="mt-4 mb-4">
-                <textarea name="content" class="form-control" rows="5" placeholder="{{ __('Content Post') }}">{{ $post->content }}</textarea>
+                <label for="content" class="form-label">{{ __('Content Post') }}</label>
+                <textarea name="content" class="form-control" id="content" rows="5">{{ $post->content }}</textarea>
                 @error('content')
                 <div class="alert alert-danger mt-1">{{ $message }}</div>
                 @enderror
