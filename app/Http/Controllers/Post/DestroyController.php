@@ -10,6 +10,7 @@ class DestroyController extends Controller
 {
     public function destroy(Post $post)
     {
+        $this->authorize('delete', auth()->user());
         $post->delete();
         session()->flash('message', "Post successfully delete");
         return redirect()->route('posts.index');
