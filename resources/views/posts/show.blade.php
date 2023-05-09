@@ -18,6 +18,7 @@
                     <small class="text-body-secondary rounded float-start me-4">{{ $post->user->name }}</small>
                 </div>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <span>{{ $post->liked_users_count }}</span>
                     <form action="{{ route('posts.liked', $post->id) }}" method="POST">
                         @csrf
                         @if(auth()->user()->likedPost->contains($post->id))
