@@ -11,6 +11,7 @@ class UpdateController extends Controller
 {
     public function update(PostRequest $request, Post $post)
     {
+        $this->authorize('update', auth()->user());
         $data = $request->validated();
         $post->update($data);
         session()->flash('message', "Post successfully update");
