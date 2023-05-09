@@ -5,6 +5,7 @@ use App\Http\Controllers\Post\Category\CategoryController;
 use App\Http\Controllers\Post\CreateController;
 use App\Http\Controllers\Post\DestroyController;
 use App\Http\Controllers\Post\EditController;
+use App\Http\Controllers\Post\Liked\LikedController;
 use App\Http\Controllers\Post\PostController;
 use App\Http\Controllers\Post\SearchController;
 use App\Http\Controllers\Post\ShowController;
@@ -36,6 +37,7 @@ Route::middleware('auth')->group(function (){
     Route::delete('/posts/{post}', [DestroyController::class, 'destroy'])->name('posts.destroy');
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::post('/liked/{post}', [LikedController::class, 'index'])->name('posts.liked');
 });
 
 Auth::routes();
