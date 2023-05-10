@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Post\Category\CategoryController;
+use App\Http\Controllers\Post\Comment\CommentController;
 use App\Http\Controllers\Post\CreateController;
 use App\Http\Controllers\Post\DestroyController;
 use App\Http\Controllers\Post\EditController;
@@ -38,6 +39,7 @@ Route::middleware('auth')->group(function (){
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::post('/liked/{post}', [LikedController::class, 'index'])->name('posts.liked');
+    Route::post('/comment/{post}/create', [CommentController::class, 'index'])->name('posts.comment');
 });
 
 Auth::routes();

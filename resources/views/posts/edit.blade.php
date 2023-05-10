@@ -9,7 +9,7 @@
             <div class="row mt-4">
                 <div class="col">
                     <label for="title" class="form-label">{{ __('Title Post') }}</label>
-                    <input type="text" name="title" class="form-control" id="title" value="{{ $post->title }}">
+                    <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" id="title" value="{{ $post->title }}">
                     @error('title')
                     <div class="alert alert-danger mt-1">{{ $message }}</div>
                     @enderror
@@ -28,7 +28,7 @@
             </div>
             <div class="mt-4 mb-4">
                 <label for="content" class="form-label">{{ __('Content Post') }}</label>
-                <textarea name="content" class="form-control" id="content" rows="5">{{ $post->content }}</textarea>
+                <textarea name="content" class="form-control @error('content') is-invalid @enderror" id="content" rows="5">{{ $post->content }}</textarea>
                 @error('content')
                 <div class="alert alert-danger mt-1">{{ $message }}</div>
                 @enderror
