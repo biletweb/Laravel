@@ -30,5 +30,10 @@
     "User": "Користувач",
     "Logout": "Вихід",
     "Hello": "Привіт",
-    "Dashboard": "Особистий кабінет"
+    "Dashboard": "Особистий кабінет",
+    "Comments": "Коментарі",
+    "Add Comment": "Додати коментар",
+    "Add Comment button": "Додати",
+    "Answer Comment": "Додати відповідь",
+    "Comment successfully added": "Коментар успішно додано"
 }
