@@ -10,6 +10,7 @@ class DeleteController extends Controller
 {
     public function destroy(Comment $comment)
     {
+        $this->authorize('delete', auth()->user());
         $comment->delete();
         session()->flash('message', "Comment successfully delete");
         return redirect()->back();
