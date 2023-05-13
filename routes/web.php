@@ -6,6 +6,7 @@ use App\Http\Controllers\Post\Category\CategoryController;
 use App\Http\Controllers\Post\Comment\CommentController;
 use App\Http\Controllers\Post\CreateController;
 use App\Http\Controllers\Post\DestroyController;
+use App\Http\Controllers\Post\Comment\DeleteController;
 use App\Http\Controllers\Post\EditController;
 use App\Http\Controllers\Post\Liked\LikedController;
 use App\Http\Controllers\Post\PostController;
@@ -42,6 +43,7 @@ Route::middleware('auth')->group(function (){
     Route::post('/liked/{post}', [LikedController::class, 'index'])->name('posts.liked');
     Route::post('/comment/{post}/create', [CommentController::class, 'index'])->name('posts.comment');
     Route::post('/comment/answer/{comment}/create', [AnswerController::class, 'index'])->name('comments.answer');
+    Route::delete('/comment/{comment}', [DeleteController::class, 'destroy'])->name('comments.destroy');
 });
 
 Auth::routes();
