@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Post\Answer\AnswerController;
 use App\Http\Controllers\Post\Category\CategoryController;
 use App\Http\Controllers\Post\Comment\CommentController;
 use App\Http\Controllers\Post\CreateController;
@@ -40,6 +41,7 @@ Route::middleware('auth')->group(function (){
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::post('/liked/{post}', [LikedController::class, 'index'])->name('posts.liked');
     Route::post('/comment/{post}/create', [CommentController::class, 'index'])->name('posts.comment');
+    Route::post('/comment/answer/{comment}/create', [AnswerController::class, 'index'])->name('comments.answer');
 });
 
 Auth::routes();
