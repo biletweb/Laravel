@@ -35,5 +35,15 @@
     "Add Comment": "Додати коментар",
     "Add Comment button": "Додати",
     "Answer Comment": "Додати відповідь",
-    "Comment successfully added": "Коментар успішно додано"
+    "Comment successfully added": "Коментар успішно додано",
+    "Name": "Ім'я",
+    "Email Address": "Email",
+    "Password": "Пароль",
+    "Confirm Password": "Підтвердьте пароль",
+    "Register": "Зареєструватися",
+    "Remember Me": "Пам'ятай мене",
+    "Forgot Your Password?": "Забули свій пароль?",
+    "Send Password Reset Link": "Надіслати посилання для скидання пароля",
+    "Reset Password": "Скинути пароль",
+    "Answer successfully added": "Відповідь успішно додано"
 }
