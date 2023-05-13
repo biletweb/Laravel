@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('post_user_likes', function (Blueprint $table) {
-            $table->foreignId('post_id')->constrained();
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('post_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
         });
     }
 
