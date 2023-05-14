@@ -10,7 +10,8 @@
 <div id="app" class="container">
     <nav class="navbar navbar-expand-md shadow-sm p-2 bg-body-tertiary rounded mb-4 mt-4">
         <div class="container">
-            <a class="navbar-brand text-body-secondary" title="{{ __('Index Page') }}" href="{{ url('/') }}">{{ config('app.name') }}</a>
+            <a class="navbar-brand text-body-secondary mt-1" title="{{ __('Index Page') }}" href="{{ url('/') }}">{{ config('app.name') }}</a>
+
             @auth()
                 <a class="navbar-brand text-body-secondary" title="{{ __('Dashboard') }}" href="{{ route('dashboard') }}">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-speedometer2" viewBox="0 0 16 16">
@@ -18,9 +19,14 @@
                         <path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z"/>
                     </svg>
                 </a>
-                <a class="navbar-brand text-body-secondary" title="{{ __('Like') }}" href="{{ route('dashboard.liked_posts') }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                <a class="navbar-brand text-body-secondary" title="{{ __('Like') }}" href="{{ route('dashboard.liked') }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                    </svg>
+                </a>
+                <a class="navbar-brand text-body-secondary" title="{{ __('Comments') }}" href="{{ route('dashboard.comment') }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-chat" viewBox="0 0 16 16">
+                        <path d="M2.678 11.894a1 1 0 0 1 .287.801 10.97 10.97 0 0 1-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 0 1 .71-.074A8.06 8.06 0 0 0 8 14c3.996 0 7-2.807 7-6 0-3.192-3.004-6-7-6S1 4.808 1 8c0 1.468.617 2.83 1.678 3.894zm-.493 3.905a21.682 21.682 0 0 1-.713.129c-.2.032-.352-.176-.273-.362a9.68 9.68 0 0 0 .244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.52.263-1.639.742-3.468 1.105z"/>
                     </svg>
                 </a>
             @endauth

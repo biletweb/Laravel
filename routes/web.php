@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard\CommentPostsController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\LikedPostsController;
 use App\Http\Controllers\Post\Answer\AnswerController;
@@ -41,7 +42,8 @@ Route::middleware('auth')->group(function (){
     Route::delete('/posts/{post}', [DestroyController::class, 'destroy'])->name('posts.destroy');
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/dashboard/liked/posts', [LikedPostsController::class, 'index'])->name('dashboard.liked_posts');
+    Route::get('/dashboard/liked/posts', [LikedPostsController::class, 'index'])->name('dashboard.liked');
+    Route::get('/dashboard/comment', [CommentPostsController::class, 'index'])->name('dashboard.comment');
     Route::post('/liked/{post}', [LikedController::class, 'index'])->name('posts.liked');
     Route::post('/comment/{post}/create', [CommentController::class, 'index'])->name('posts.comment');
     Route::post('/comment/answer/{comment}/create', [AnswerController::class, 'index'])->name('comments.answer');
