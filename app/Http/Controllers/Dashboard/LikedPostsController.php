@@ -9,6 +9,6 @@ class LikedPostsController extends Controller
     public function index()
     {
         $posts = auth()->user()->likedPost;
-        return view('dashboard.liked_posts', compact('posts'));
+        return view('dashboard.liked', compact('posts'));
     }
 }
