@@ -21,4 +21,9 @@ class Comment extends Model
     {
         return $this->hasMany(Answer::class)->orderBy('id', 'DESC');
     }
+
+    public function post()
+    {
+        return $this->belongsTo(Post::class)->withTrashed(); // withTrashed для отображения всех коммент. в профиле польз.
+    }
 }

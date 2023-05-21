@@ -26,10 +26,6 @@
                     <li><a href="{{ route('posts.index') }}" class="nav-link px-2 link-body-emphasis">{{ __('Index Page') }}</a></li>
                 </ul>
 
-                <form action="{{ route('search') }}" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                    <input name="s" type="search" class="form-control" placeholder="{{ __('Search') }} ..." aria-label="Search" required>
-                </form>
-
                 <div class="dropdown text-end">
                     <a href="#" class="d-block link-secondary text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                         <svg class="bi" width="28" height="28" fill="currentColor">
@@ -38,8 +34,9 @@
                     </a>
                     <ul class="dropdown-menu text-small">
                         @auth()
-                            <li><a class="dropdown-item" href="{{ route('posts.create') }}">{{ __('Add Post') }}</a></li>
-                            <li><a class="dropdown-item" href="{{ route('dashboard') }}">{{ __('Dashboard') }}</a></li>
+                            <li><a class="dropdown-item" href="#">1</a></li>
+                            <li><a class="dropdown-item" href="#">2</a></li>
+                            <li><a class="dropdown-item" href="#">3</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -48,10 +45,6 @@
                                 @csrf
                             </form>
                         @endauth
-                        @guest()
-                            <li><a class="dropdown-item" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-                            <li><a class="dropdown-item" href="{{ route('register') }}">{{ __('Sign-up') }}</a></li>
-                        @endguest
                     </ul>
                 </div>
             </div>
@@ -60,7 +53,7 @@
 
     <main class="row">
         <div class="col-3">
-            @include('include.menu')
+            @include('include.admin_sidebar')
         </div>
         <div class="col-9">
             @if (session()->has('message'))
