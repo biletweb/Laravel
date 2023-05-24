@@ -1,4 +1,4 @@
-<div class="list-group">
+<div class="list-group shadow-sm rounded-2">
     @foreach($categories as $category)
         <a href="{{ route('posts.category', $category->id) }}" class="list-group-item list-group-item-action
         @if($category->id == request()->category_id) active @endif

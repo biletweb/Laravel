@@ -32,6 +32,8 @@
     "Hello": "Привіт",
     "Dashboard": "Особистий кабінет",
     "Comments": "Коментарі",
+    "Comment": "Коментар",
+    "My Comment": "Мої коментарі",
     "Add Comment": "Додати коментар",
     "Add Comment button": "Додати",
     "Answer Comment": "Додати відповідь",
@@ -41,11 +43,15 @@
     "Password": "Пароль",
     "Confirm Password": "Підтвердьте пароль",
     "Register": "Зареєструватися",
-    "Remember Me": "Пам'ятай мене",
+    "Remember Me": "Запам'ятати мене",
     "Forgot Your Password?": "Забули свій пароль?",
     "Send Password Reset Link": "Надіслати посилання для скидання пароля",
     "Reset Password": "Скинути пароль",
     "Answer successfully added": "Відповідь успішно додано",
     "Comment successfully delete": "Коментар успішно видалено",
-    "Name Post": "Назва"
+    "Name Post": "Назва",
+    "Unavailable": "Недоступний",
+    "Author": "Автор",
+    "Post": "Пост",
+    "My Liked Post": "Сподобалися пости"
 }

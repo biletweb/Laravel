@@ -26,10 +26,6 @@
                     <li><a href="{{ route('posts.index') }}" class="nav-link px-2 link-body-emphasis">{{ __('Index Page') }}</a></li>
                 </ul>
 
-                <form action="{{ route('search') }}" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                    <input name="s" type="search" class="form-control" placeholder="{{ __('Search') }} ..." aria-label="Search" required>
-                </form>
-
                 <div class="dropdown text-end">
                     <a href="#" class="d-block link-secondary text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                         <svg class="bi" width="28" height="28" fill="currentColor">
@@ -37,21 +33,8 @@
                         </svg>
                     </a>
                     <ul class="dropdown-menu text-small">
-                        @auth()
-                            <li><a class="dropdown-item" href="{{ route('posts.create') }}">{{ __('Add Post') }}</a></li>
-                            <li><a class="dropdown-item" href="{{ route('dashboard') }}">{{ __('Dashboard') }}</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }} | {{ auth()->user()->name }}</a></li>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        @endauth
-                        @guest()
-                            <li><a class="dropdown-item" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-                            <li><a class="dropdown-item" href="{{ route('register') }}">{{ __('Sign-up') }}</a></li>
-                        @endguest
+                        <li><a class="dropdown-item" href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                        <li><a class="dropdown-item" href="{{ route('register') }}">{{ __('Sign-up') }}</a></li>
                     </ul>
                 </div>
             </div>
@@ -59,16 +42,7 @@
     </header>
 
     <main class="row">
-        <div class="col-3">
-            @include('include.menu')
-        </div>
-        <div class="col-9">
-            @if (session()->has('message'))
-                <div class="alert alert-info text-center mb-4">{{ __(session()->get('message')) }}</div>
-            @endif
-            @if (session()->has('error_message'))
-                <div class="alert alert-danger text-center mb-4">{{ __(session()->get('error_message')) }}</div>
-            @endif
+        <div class="col-12">
             @yield('content')
         </div>
     </main>
