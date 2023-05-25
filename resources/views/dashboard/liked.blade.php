@@ -6,7 +6,7 @@
             {{ __('No Results') }}
         </div>
     @else
-        <div class="card">
+        <div class="card mb-3">
             <div class="card-body">
                 <table class="table table-borderless table-hover mb-0">
                     <thead>
@@ -44,6 +44,9 @@
                     </tbody>
                 </table>
             </div>
+        </div>
+        <div class="mb-2">
+            {{ $posts->links() }}
         </div>
     @endif
 @endsection

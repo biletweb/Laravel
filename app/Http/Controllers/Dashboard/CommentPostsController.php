@@ -9,7 +9,7 @@ class CommentPostsController extends Controller
 {
     public function index()
     {
-        $comments = Comment::query()->where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->get();
+        $comments = Comment::query()->where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->paginate(10);
         return view('dashboard.comments', compact('comments'));
     }
 }
