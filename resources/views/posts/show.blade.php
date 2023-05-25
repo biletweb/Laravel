@@ -12,9 +12,13 @@
                 <small class="text-body-secondary float-start me-4">{{ $post->category->title }}</small>
 
                 <div title="{{ __('User') }}">
-                    <svg class="bi me-2" width="24" height="24" fill="currentColor">
-                        <use xlink:href="{{ asset('icons/bootstrap-icons.svg#person') }}"/>
-                    </svg>
+                    @if($post->user->avatar)
+                        <img src="{{ asset('storage/' . $post->user->avatar) }}" style="width: 24px; height: 24px; object-fit: cover;" class="rounded-circle me-2">
+                    @else
+                        <svg class="bi me-2" width="24" height="24" fill="currentColor">
+                            <use xlink:href="{{ asset('icons/bootstrap-icons.svg#person') }}"/>
+                        </svg>
+                    @endif
                 </div>
                 <small class="text-body-secondary float-start me-4">{{ $post->user->name }}</small>
             </div>
@@ -127,12 +131,14 @@
     @foreach($post->comments as $comment)
         <div class="list-group mb-4 list-group-item shadow-sm border-1">
             <div class="d-flex justify-content-between">
-                <div>
-                    <span title="{{ __('User') }}">
-                            <svg class="bi" width="20" height="20" fill="currentColor">
-                                <use xlink:href="{{ asset('icons/bootstrap-icons.svg#person') }}"/>
-                            </svg>
-                    </span>
+                <div title="{{ __('User') }}">
+                    @if($comment->user->avatar)
+                        <img src="{{ asset('storage/' . $comment->user->avatar) }}" style="width: 24px; height: 24px; object-fit: cover;" class="rounded-circle">
+                    @else
+                        <svg class="bi" width="24" height="24" fill="currentColor">
+                            <use xlink:href="{{ asset('icons/bootstrap-icons.svg#person') }}"/>
+                        </svg>
+                    @endif
                     <small class="text-body-secondary">
                         {{ $comment->user->name }}
                     </small>
@@ -201,9 +207,13 @@
                     <div class="list-group-item">
                         <div class="d-flex justify-content-between">
                             <div title="{{ __('User') }}">
-                                <svg class="bi" width="20" height="20" fill="currentColor">
-                                    <use xlink:href="{{ asset('icons/bootstrap-icons.svg#person') }}"/>
-                                </svg>
+                                @if($answer->user->avatar)
+                                    <img src="{{ asset('storage/' . $answer->user->avatar) }}" style="width: 24px; height: 24px; object-fit: cover;" class="rounded-circle">
+                                @else
+                                    <svg class="bi" width="24" height="24" fill="currentColor">
+                                        <use xlink:href="{{ asset('icons/bootstrap-icons.svg#person') }}"/>
+                                    </svg>
+                                @endif
                                 <small class="text-body-secondary">{{ $answer->user->name }}</small>
                             </div>
                             <small class="text-body-secondary">{{ $answer->created_at->diffForHumans() }}</small>

@@ -29,7 +29,7 @@
                 <div class="dropdown text-end">
                     <a href="#" class="d-block link-secondary text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                         <svg class="bi" width="28" height="28" fill="currentColor">
-                            <use xlink:href="{{ asset('icons/bootstrap-icons.svg#person-circle') }}"/>
+                            <use xlink:href="{{ asset('icons/bootstrap-icons.svg#person') }}"/>
                         </svg>
                     </a>
                     <ul class="dropdown-menu text-small">

@@ -28,15 +28,17 @@
 
                 <div class="dropdown text-end">
                     <a href="#" class="d-block link-secondary text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                        <svg class="bi" width="28" height="28" fill="currentColor">
-                            <use xlink:href="{{ asset('icons/bootstrap-icons.svg#person-circle') }}"/>
-                        </svg>
+                        @if(auth()->user()->avatar)
+                            <img src="{{ asset('storage/' . auth()->user()->avatar) }}" style="width: 28px; height: 28px; object-fit: cover;" class="rounded-circle">
+                        @else
+                            <svg class="bi" width="28" height="28" fill="currentColor">
+                                <use xlink:href="{{ asset('icons/bootstrap-icons.svg#person') }}"/>
+                            </svg>
+                        @endif
                     </a>
                     <ul class="dropdown-menu text-small">
                         @auth()
                             <li><a class="dropdown-item" href="{{ route('dashboard.profile.avatar') }}">{{ __('Avatar Upload') }}</a></li>
-                            <li><a class="dropdown-item" href="#">2</a></li>
-                            <li><a class="dropdown-item" href="#">3</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>

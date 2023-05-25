@@ -8,9 +8,9 @@
                 @csrf
                 <div class="d-flex">
                     @if(auth()->user()->avatar)
-                        <img src="{{ asset('storage/' . auth()->user()->avatar) }}" class="img-fluid rounded-circle border border-secondary-subtle" style="width: 150px; height: 150px;">
+                        <img src="{{ asset('storage/' . auth()->user()->avatar) }}" class="img-fluid rounded-circle border border-secondary-subtle" style="width: 150px; height: 150px; object-fit: cover;">
                     @else
-                        <img src="{{ asset('img/noAvatar.png') }}" class="img-fluid rounded-circle border border-secondary-subtle" style="width: 150px; height: 150px;">
+                        <img src="{{ asset('img/noAvatar.png') }}" class="img-fluid rounded-circle border border-secondary-subtle" style="width: 150px; height: 150px; object-fit: cover;">
                     @endif
                     <div class="ms-3 me-3 my-auto w-100">
                         <input type="file" name="avatar" class="form-control">
