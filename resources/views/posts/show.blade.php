@@ -129,7 +129,7 @@
     </div>
 
     @foreach($post->comments as $comment)
-        <div class="list-group mb-4 list-group-item shadow-sm border-1">
+        <div class="list-group mb-4 list-group-item shadow-sm border-1" id="comment-{{ $comment->id }}">
             <div class="d-flex justify-content-between">
                 <div title="{{ __('User') }}">
                     @if($comment->user->avatar)

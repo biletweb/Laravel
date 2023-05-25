@@ -24,7 +24,7 @@
                                 @if($comment->post->deleted_at != null)
                                     <span class="badge text-bg-danger me-1">{{ __('Unavailable') }}</span>
                                 @endif
-                                <a class="link-underline link-underline-opacity-0" href="{{ route('posts.show', $comment->post_id) }}">
+                                <a class="link-underline link-underline-opacity-0" href="{{ route('posts.show', $comment->post_id) }}#comment-{{ $comment->id }}">
                                     <small class="text-body-secondary">{{ str()->limit($comment->content, 100, '...')  }}</small>
                                 </a>
                             </td>
