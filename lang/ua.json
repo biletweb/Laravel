@@ -53,5 +53,11 @@
     "Unavailable": "Недоступний",
     "Author": "Автор",
     "Post": "Пост",
-    "My Liked Post": "Сподобалися пости"
+    "My Liked Post": "Сподобалися пости",
+    "Avatar Upload": "Завантажити аватар",
+    "Upload": "Завантажити",
+    "The avatar has already been deleted": "Аватар відсутній",
+    "Avatar successfully deleted": "Аватар успішно видалено",
+    "Avatar successfully uploaded": "Аватар успішно завантажено"
+
 }

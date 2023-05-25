@@ -3,6 +3,8 @@
 use App\Http\Controllers\Dashboard\CommentPostsController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\LikedPostsController;
+use App\Http\Controllers\Dashboard\Profile\DeleteAvatarController;
+use App\Http\Controllers\Dashboard\Profile\UploadAvatarController;
 use App\Http\Controllers\Post\Answer\AnswerController;
 use App\Http\Controllers\Post\Category\CategoryController;
 use App\Http\Controllers\Post\Comment\CommentController;
@@ -48,6 +50,12 @@ Route::middleware('auth')->group(function (){
     Route::post('/comment/{post}/create', [CommentController::class, 'index'])->name('posts.comment');
     Route::post('/comment/answer/{comment}/create', [AnswerController::class, 'index'])->name('comments.answer');
     Route::delete('/comment/{comment}', [DeleteController::class, 'destroy'])->name('comments.destroy');
+
+    Route::get('dashboard/profile/avatar/upload', function () {
+        return view('dashboard.profile.avatar-upload');
+    })->name('dashboard.profile.avatar');
+    Route::post('dashboard/profile/avatar/upload', [UploadAvatarController::class, 'index'])->name('dashboard.profile.avatar.upload');
+    Route::get('dashboard/profile/avatar/delete', [DeleteAvatarController::class, 'index'])->name('dashboard.profile.avatar.delete');
 });
 
 Auth::routes();

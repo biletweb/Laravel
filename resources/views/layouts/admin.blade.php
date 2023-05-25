@@ -34,7 +34,7 @@
                     </a>
                     <ul class="dropdown-menu text-small">
                         @auth()
-                            <li><a class="dropdown-item" href="#">1</a></li>
+                            <li><a class="dropdown-item" href="{{ route('dashboard.profile.avatar') }}">{{ __('Avatar Upload') }}</a></li>
                             <li><a class="dropdown-item" href="#">2</a></li>
                             <li><a class="dropdown-item" href="#">3</a></li>
                             <li>
