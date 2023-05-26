@@ -36,7 +36,7 @@ Route::get('/', [PostController::class, 'index'])->name('posts.index');
 Route::get('/search', [SearchController::class, 'search'])->name('search');
 Route::get('/category/{category_id}/posts/', [CategoryController::class, 'index'])->name('posts.category');
 
-Route::middleware('auth')->group(function (){
+Route::middleware('auth')->group(function () {
     Route::get('/posts/create', [CreateController::class, 'create'])->name('posts.create');
     Route::post('/posts', [StoreController::class, 'store'])->name('posts.store');
     Route::get('/posts/{post}', [ShowController::class, 'show'])->name('posts.show');
@@ -57,7 +57,12 @@ Route::middleware('auth')->group(function (){
     })->name('dashboard.profile.avatar');
     Route::post('dashboard/profile/avatar/upload', [UploadAvatarController::class, 'index'])->name('dashboard.profile.avatar.upload');
     Route::get('dashboard/profile/avatar/delete', [DeleteAvatarController::class, 'index'])->name('dashboard.profile.avatar.delete');
-    Route::get('dashboard/posts/trash', [TrashPostsController::class, 'index'])->name('dashboard.trash');
+
+    Route::controller(TrashPostsController::class)->group(function () {
+        Route::get('/dashboard/posts/trash', 'index')->name('dashboard.trash');
+        Route::get('/dashboard/posts/trash/restore/{id}', 'restore')->name('dashboard.trash.restore');
+        Route::get('/dashboard/posts/trash/delete/{id}', 'delete')->name('dashboard.trash.delete');
+    });
 });
 
 Auth::routes();

@@ -53,8 +53,14 @@
                             </td>
                             <td><small class="text-body-secondary">{{ $post->created_at->diffForHumans() }}</small></td>
                             <td>
-                                <button type="button" class="btn btn-success btn-sm">{{ __('Restore') }}</button>
-                                <button type="button" class="btn btn-danger btn-sm">{{ __('Delete') }}</button>
+                                <div class="d-flex justify-content-center">
+                                    <form action="{{ route('dashboard.trash.restore', $post->id) }}">
+                                        <button type="submit" class="btn btn-success btn-sm me-2">{{ __('Restore') }}</button>
+                                    </form>
+                                    <form action="{{ route('dashboard.trash.delete', $post->id) }}">
+                                        <button type="submit" class="btn btn-danger btn-sm">{{ __('Delete') }}</button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                     @endforeach
