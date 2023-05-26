@@ -52,7 +52,7 @@ class AdminPolicy
      */
     public function restore(User $user, User $model): bool
     {
-        //
+        return $model->name == 'admin';
     }
 
     /**
@@ -60,6 +60,6 @@ class AdminPolicy
      */
     public function forceDelete(User $user, User $model): bool
     {
-        //
+        return $model->name == 'admin';
     }
 }
