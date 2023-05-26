@@ -5,6 +5,7 @@ use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\LikedPostsController;
 use App\Http\Controllers\Dashboard\Profile\DeleteAvatarController;
 use App\Http\Controllers\Dashboard\Profile\UploadAvatarController;
+use App\Http\Controllers\Dashboard\TrashPostsController;
 use App\Http\Controllers\Post\Answer\AnswerController;
 use App\Http\Controllers\Post\Category\CategoryController;
 use App\Http\Controllers\Post\Comment\CommentController;
@@ -56,6 +57,7 @@ Route::middleware('auth')->group(function (){
     })->name('dashboard.profile.avatar');
     Route::post('dashboard/profile/avatar/upload', [UploadAvatarController::class, 'index'])->name('dashboard.profile.avatar.upload');
     Route::get('dashboard/profile/avatar/delete', [DeleteAvatarController::class, 'index'])->name('dashboard.profile.avatar.delete');
+    Route::get('dashboard/posts/trash', [TrashPostsController::class, 'index'])->name('dashboard.trash');
 });
 
 Auth::routes();

@@ -58,6 +58,8 @@
     "Upload": "Завантажити",
     "The avatar has already been deleted": "Аватар відсутній",
     "Avatar successfully deleted": "Аватар успішно видалено",
-    "Avatar successfully uploaded": "Аватар успішно завантажено"
-
+    "Avatar successfully uploaded": "Аватар успішно завантажено",
+    "Deleted posts": "Видалені пости",
+    "Restore": "Відновити",
+    "Actions": "Дії"
 }
