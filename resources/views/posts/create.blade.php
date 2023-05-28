@@ -27,7 +27,7 @@
                 </div>
             </div>
             <div class="mt-4 mb-4">
-                <textarea name="content" class="form-control @error('content') is-invalid @enderror" rows="5" placeholder="{{ __('Content Post') }}">{{ old('content') }}</textarea>
+                <textarea name="content" id="editor" class="form-control @error('content') is-invalid @enderror" rows="5" placeholder="{{ __('Content Post') }}" autofocus>{{ old('content') }}</textarea>
                 @error('content')
                 <div class="alert alert-danger mt-1">{{ $message }}</div>
                 @enderror
