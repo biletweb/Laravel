@@ -53,7 +53,7 @@
         <div class="border-bottom mb-3">
             <div class="mb-3">
                 <h4 class="fw-bold">{{ $post->title }}</h4>
-                <div class="fs-5">{{ $post->content }}</div>
+                <div class="fs-5">{!! $post->content !!}</div>
             </div>
         </div>
 
@@ -182,7 +182,7 @@
                             <h1 class="modal-title fs-5" id="staticBackdropLabel">{{ __('Answer Comment') }}</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <form action="{{ route('comments.answer', $comment->id) }}" method="POST">
+                        <form action="{{ route('comments.answer', $comment->id) }}?post_id={{ $post->id }}" method="POST">
                             <div class="modal-body">
                                 @csrf
                                 <div>
@@ -202,7 +202,7 @@
         </div>
 
         @foreach($comment->answers as $answer)
-            <div class="d-flex justify-content-end">
+            <div class="d-flex justify-content-end" id="answer-{{ $answer->id }}">
                 <div class="list-group mb-4 w-75 rounded-2 shadow-sm">
                     <div class="list-group-item">
                         <div class="d-flex justify-content-between">

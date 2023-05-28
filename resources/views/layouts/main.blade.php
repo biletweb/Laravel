@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <!-- include simditor css -->
+    <link rel="stylesheet" href="{{ asset('css/simditor/simditor.css') }}">
     <style>
         main {
             min-height: calc(100vh - 159px);
@@ -105,5 +107,22 @@
 
 </div>
 <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+<!-- include simditor js -->
+<script src="{{ asset('js/simditor/jquery.min.js') }}"></script>
+<script src="{{ asset('js/simditor/module.js') }}"></script>
+<script src="{{ asset('js/simditor/hotkeys.js') }}"></script>
+<script src="{{ asset('js/simditor/simditor.js') }}"></script>
+<!-- activate simditor -->
+<script>
+    var editor = new Simditor({
+        textarea: $('#editor'),
+        toolbar: [
+            'bold', 'italic', 'underline', 'strikethrough', '|',
+            'fontScale', 'alignment', '|',
+            'ol', 'ul', '|',
+            'hr'
+        ],
+    });
+</script>
 </body>
 </html>

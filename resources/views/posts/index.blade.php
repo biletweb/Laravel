@@ -17,7 +17,7 @@
                     </div>
 
                     <div class="card-body">
-                        {{ str()->limit($post->content, 255, '...')  }}
+                        {!! str()->limit($post->content, 255, '...') !!}
                     </div>
 
                     <div class="d-flex justify-content-between align-items-center px-3 py-2 border-top">
