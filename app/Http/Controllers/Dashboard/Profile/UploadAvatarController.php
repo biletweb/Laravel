@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\Storage;
 
 class UploadAvatarController extends Controller
 {
-    public function index(Request $request){
+    public function index(Request $request)
+    {
         $data = $request->validate([
             'avatar' => 'required|file|max:500|dimensions:max_width=300,max_height=300'
         ]);
@@ -18,9 +19,7 @@ class UploadAvatarController extends Controller
         }
         $data['avatar'] = Storage::disk('public')->put('disc/img/profile/avatar', $data['avatar']);
         User::query()->where('id', auth()->user()->id)->update($data);
-
         session()->flash('message', "Avatar successfully uploaded");
-
         return redirect()->route('dashboard.profile.avatar');
     }
 }
