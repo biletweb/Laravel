@@ -15,9 +15,8 @@ class AnswerController extends Controller
         $data = $request->validated();
         $data['comment_id'] = $comment->id;
         $data['user_id'] = auth()->user()->id;
-        $answer =Answer::query()->create($data);
+        $answer = Answer::query()->create($data);
         session()->flash('message', "Answer successfully added");
-//        return redirect()->back();
-        return redirect(route('posts.show', $request->post_id . '#answer-' . $answer->id ));
+        return redirect(route('posts.show', $request->post_id . '#answer-' . $answer->id));
     }
 }

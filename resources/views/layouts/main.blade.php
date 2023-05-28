@@ -124,5 +124,44 @@
         ],
     });
 </script>
+<!-- scrolls top -->
+<style>
+    #btnTop {
+        display: none;
+        position: fixed;
+        bottom: 83px;
+        right: 17px;
+        z-index: 99;
+        font-size: 19px;
+        border: none;
+        outline: none;
+        background-color: #dee2e6;
+        color: white;
+        cursor: pointer;
+        padding: 5px;
+        border-radius: 4px;
+    }
+
+    #btnTop:hover {
+        background-color: #0d6efd;
+    }
+</style>
+<button onclick="topFunction()" id="btnTop" title="Go to top">Top</button>
+<script>
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+    function scrollFunction() {
+        if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
+            document.getElementById("btnTop").style.display = "block";
+        } else {
+            document.getElementById("btnTop").style.display = "none";
+        }
+    }
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
 </body>
 </html>
