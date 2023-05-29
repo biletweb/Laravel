@@ -23,7 +23,6 @@
                 <small class="text-body-secondary float-start me-4">{{ $post->user->name }}</small>
             </div>
 
-
             <div class="d-flex justify-content-end mb-3">
                 <div class="me-2">{{ $post->liked_users_count }}</div>
 

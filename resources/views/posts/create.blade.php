@@ -45,4 +45,21 @@
             </div>
         </div>
     </form>
+    <!-- include simditor js -->
+    <script src="{{ asset('js/simditor/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/simditor/module.js') }}"></script>
+    <script src="{{ asset('js/simditor/hotkeys.js') }}"></script>
+    <script src="{{ asset('js/simditor/simditor.js') }}"></script>
+    <!-- activate simditor -->
+    <script>
+        var editor = new Simditor({
+            textarea: $('#editor'),
+            toolbar: [
+                'bold', 'italic', 'underline', 'strikethrough', '|',
+                'fontScale', 'alignment', '|',
+                'ol', 'ul', '|',
+                'hr'
+            ],
+        });
+    </script>
 @endsection

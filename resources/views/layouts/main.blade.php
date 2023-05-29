@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" @if(date('H:i') > config('app.dark_theme_on')) data-bs-theme="dark" @endif @if(date('H:i') < config('app.dark_theme_off')) data-bs-theme="dark" @else data-bs-theme="light" @endif>
+<html lang="en" @if(date('H:i') > config('app.dark_theme_on')) data-bs-theme="dark" @elseif(date('H:i') < config('app.dark_theme_off')) data-bs-theme="dark" @else data-bs-theme="light" @endif>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -107,23 +107,6 @@
 
 </div>
 <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
-<!-- include simditor js -->
-<script src="{{ asset('js/simditor/jquery.min.js') }}"></script>
-<script src="{{ asset('js/simditor/module.js') }}"></script>
-<script src="{{ asset('js/simditor/hotkeys.js') }}"></script>
-<script src="{{ asset('js/simditor/simditor.js') }}"></script>
-<!-- activate simditor -->
-<script>
-    var editor = new Simditor({
-        textarea: $('#editor'),
-        toolbar: [
-            'bold', 'italic', 'underline', 'strikethrough', '|',
-            'fontScale', 'alignment', '|',
-            'ol', 'ul', '|',
-            'hr'
-        ],
-    });
-</script>
 <!-- scrolls top -->
 <style>
     #btnTop {
@@ -135,14 +118,11 @@
         font-size: 18px;
         border: none;
         outline: none;
-        /*background-color: #dee2e6;*/
-        @if(date('H:i') > config('app.dark_theme_on')) background-color: #8b9297; color: #212529; @endif
-        @if(date('H:i') < config('app.dark_theme_off')) background-color: #8b9297; color: #212529;
+        @if(date('H:i') > config('app.dark_theme_on')) background-color: #8b9297; color: #212529;
+        @elseif(date('H:i') < config('app.dark_theme_off')) background-color: #8b9297; color: #212529;
         @else
         background-color: #e9ecef; color: #1b74f9;
         @endif
-        /*background-color: #8b9297;*/
-        /*color: #212529;*/
         cursor: pointer;
         padding: 5px;
         border-radius: 4px;
@@ -150,7 +130,7 @@
 
     #btnTop:hover {
         background-color: #1b74f9;
-        color: white;
+        color: #e9ecef;
     }
 </style>
 <button onclick="topFunction()" id="btnTop">
