@@ -130,23 +130,29 @@
         display: none;
         position: fixed;
         bottom: 83px;
-        right: 17px;
+        right: 19px;
         z-index: 99;
-        font-size: 19px;
+        font-size: 18px;
         border: none;
         outline: none;
-        background-color: #dee2e6;
-        color: white;
+        /*background-color: #dee2e6;*/
+        background-color: #8b9297;
+        color: #212529;
         cursor: pointer;
         padding: 5px;
         border-radius: 4px;
     }
 
     #btnTop:hover {
-        background-color: #0d6efd;
+        background-color: #1b74f9;
+        color: white;
     }
 </style>
-<button onclick="topFunction()" id="btnTop" title="Go to top">Top</button>
+<button onclick="topFunction()" id="btnTop">
+    <svg class="bi" width="24" height="24" fill="currentColor">
+        <use xlink:href="{{ asset('icons/bootstrap-icons.svg#arrow-up') }}"/>
+    </svg>
+</button>
 <script>
     // When the user scrolls down 20px from the top of the document, show the button
     window.onscroll = function() {scrollFunction()};
