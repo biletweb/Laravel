@@ -136,8 +136,13 @@
         border: none;
         outline: none;
         /*background-color: #dee2e6;*/
-        background-color: #8b9297;
-        color: #212529;
+        @if(date('H:i') > config('app.dark_theme_on')) background-color: #8b9297; color: #212529; @endif
+        @if(date('H:i') < config('app.dark_theme_off')) background-color: #8b9297; color: #212529;
+        @else
+        background-color: #e9ecef; color: #1b74f9;
+        @endif
+        /*background-color: #8b9297;*/
+        /*color: #212529;*/
         cursor: pointer;
         padding: 5px;
         border-radius: 4px;
