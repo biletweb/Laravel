@@ -46,4 +46,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Post::class, 'post_user_likes', 'user_id', 'post_id')->orderBy('id', 'DESC')->withTrashed(); // withTrashed для отображения всех лайков. в профиле польз.
     }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class)->withTrashed()->orderBy('id', 'DESC')->paginate(10);
+    }
 }
