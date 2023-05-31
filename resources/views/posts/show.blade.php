@@ -52,6 +52,28 @@
         <div class="border-bottom mb-3">
             <div class="mb-3">
                 <h4 class="fw-bold">{{ $post->title }}</h4>
+
+                @if($post->postImages()->count() != 0)
+                    <div id="carouselPostimages" class="carousel slide mt-3 mb-3">
+                        <div class="carousel-indicators">
+                            @php $i = 0 @endphp
+                            @foreach($post->postImages as $image)
+                                <button type="button" data-bs-target="#carouselPostimages" data-bs-slide-to="{{ $i }}" @if($i==0) class="active" @endif aria-current="true"></button>
+                                @php $i++ @endphp
+                            @endforeach
+                        </div>
+                        <div class="carousel-inner rounded-2">
+                            @php $i = 0 @endphp
+                            @foreach($post->postImages as $image)
+                                <div class="carousel-item @if($i==0) active @endif">
+                                    <img src="{{ asset('storage/' . $image->image) }}" class="d-block w-100" alt="..." style="max-width: 934px; max-height: 500px; object-fit: cover;">
+                                </div>
+                                @php $i++ @endphp
+                            @endforeach
+                        </div>
+                    </div>
+                @endif
+
                 <div class="fs-5">{!! $post->content !!}</div>
             </div>
         </div>

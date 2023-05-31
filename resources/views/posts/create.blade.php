@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-    <form method="POST" action="{{ route('posts.store') }}">
+    <form method="POST" action="{{ route('posts.store') }}" enctype="multipart/form-data">
         @csrf
         <div class="p-4 bg-body-tertiary rounded-2">
             <h2 class="fw-bold">{{ __('Add Post') }}</h2>
@@ -11,7 +11,7 @@
                 <div class="col">
                     <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" value="{{ old('title') }}" placeholder="{{ __('Title Post') }}">
                     @error('title')
-                    <div class="alert alert-danger mt-1">{{ $message }}</div>
+                    <div class="alert alert-danger mt-1 mb-0">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="col">
@@ -22,10 +22,18 @@
                         @endforeach
                     </select>
                     @error('category_id')
-                    <div class="alert alert-danger mt-1">{{ $message }}</div>
+                    <div class="alert alert-danger mt-1  mb-0">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
+
+            <div class="mt-4">
+                <input name="image[]" class="form-control @error('image.*') is-invalid @enderror" type="file" multiple>
+                @error('image.*')
+                <div class="alert alert-danger mt-1">{{ $message }}</div>
+                @enderror
+            </div>
+
             <div class="mt-4 mb-4">
                 <textarea name="content" id="editor" class="form-control @error('content') is-invalid @enderror" rows="5" placeholder="{{ __('Content Post') }}" autofocus>{{ old('content') }}</textarea>
                 @error('content')

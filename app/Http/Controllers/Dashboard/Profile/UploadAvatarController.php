@@ -12,7 +12,7 @@ class UploadAvatarController extends Controller
     public function index(Request $request)
     {
         $data = $request->validate([
-            'avatar' => 'required|file|max:500|dimensions:max_width=300,max_height=300'
+            'avatar' => 'required|file|mimes:jpeg,png,jpg|max:500|dimensions:max_width=300,max_height=300'
         ]);
         if (auth()->user()->avatar) {
             Storage::disk('public')->delete(auth()->user()->avatar);
