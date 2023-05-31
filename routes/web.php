@@ -3,6 +3,7 @@
 use App\Http\Controllers\Dashboard\CommentPostsController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\LikedPostsController;
+use App\Http\Controllers\Dashboard\PostsController;
 use App\Http\Controllers\Dashboard\Profile\DeleteAvatarController;
 use App\Http\Controllers\Dashboard\Profile\UploadAvatarController;
 use App\Http\Controllers\Dashboard\TrashPostsController;
@@ -45,6 +46,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/posts/{post}', [DestroyController::class, 'destroy'])->name('posts.destroy')->middleware('user.post.delete');
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard/posts', [PostsController::class, 'index'])->name('dashboard.posts');
     Route::get('/dashboard/liked/posts', [LikedPostsController::class, 'index'])->name('dashboard.liked');
     Route::get('/dashboard/comment', [CommentPostsController::class, 'index'])->name('dashboard.comment');
     Route::post('/liked/{post}', [LikedController::class, 'index'])->name('posts.liked');
