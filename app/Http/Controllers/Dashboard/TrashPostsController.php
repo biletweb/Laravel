@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Post;
 use App\Models\PostImage;
 use Illuminate\Support\Facades\Storage;
-use function GuzzleHttp\Promise\all;
 
 class TrashPostsController extends Controller
 {
@@ -32,16 +31,18 @@ class TrashPostsController extends Controller
         \DB::beginTransaction();
         try {
             $postImages = PostImage::query()->where('post_id', $id)->get();
-            foreach ($postImages as $image) {
-                Storage::disk('public')->delete($image->image);
-            }
+            Post::query()->onlyTrashed()->where('id', $id)->forceDelete();
             \DB::commit();
-        } catch (\Exception $e) {
+        } catch (\Exception) {
             \DB::rollback();
-            session()->flash('error_message', "error");
+            session()->flash('error_message', "An error occurred on the server while deleting an image or post");
+            return redirect()->back();
         }
 
-        Post::query()->onlyTrashed()->where('id', $id)->forceDelete();
+        foreach ($postImages as $image) {
+            Storage::disk('public')->delete($image->image);
+        }
+
         session()->flash('message', "Post successfully delete");
         return redirect()->back();
     }
