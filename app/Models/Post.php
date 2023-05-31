@@ -39,4 +39,9 @@ class Post extends Model
     {
         return $this->hasMany(Comment::class)->orderBy('id', 'DESC');
     }
+
+    public function postImages()
+    {
+        return $this->hasMany(PostImage::class);
+    }
 }
