@@ -28,6 +28,7 @@
             </div>
 
             <div class="mt-4">
+                <label for="image" class="form-label">{{ __('Add an image:') }} <small class="text-danger">* {{ __('min.') }} 640/480 px</small></label>
                 <input name="image[]" class="form-control @error('image.*') is-invalid @enderror" type="file" multiple>
                 @error('image.*')
                 <div class="alert alert-danger mt-1">{{ $message }}</div>
