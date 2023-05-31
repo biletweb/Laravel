@@ -92,6 +92,22 @@
                             <use xlink:href="{{ asset('icons/bootstrap-icons.svg#pencil-square') }}"/>
                         </svg>
                     </a>
+                    @if(auth()->user()->name != $post->user->name)
+                        <form method="POST" action="{{ route('posts.destroy', $post->id) }}">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="bg-transparent border-0 p-0">
+                                <a class="text-danger me-2" title="{{ __('Delete') }}">
+                                    <svg class="bi" width="24" height="24" fill="currentColor">
+                                        <use xlink:href="{{ asset('icons/bootstrap-icons.svg#trash') }}"/>
+                                    </svg>
+                                </a>
+                            </button>
+                        </form>
+                    @endif
+                @endcan
+
+                @if(auth()->user()->name == $post->user->name)
                     <form method="POST" action="{{ route('posts.destroy', $post->id) }}">
                         @csrf
                         @method('DELETE')
@@ -103,7 +119,7 @@
                             </a>
                         </button>
                     </form>
-                @endcan
+                @endif
             </div>
 
             <small class="text-body-secondary">

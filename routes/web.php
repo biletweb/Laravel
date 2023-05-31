@@ -42,7 +42,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/posts/{post}', [ShowController::class, 'show'])->name('posts.show');
     Route::get('/posts/{post}/edit', [EditController::class, 'edit'])->name('posts.edit');
     Route::patch('/posts/{post}', [UpdateController::class, 'update'])->name('posts.update');
-    Route::delete('/posts/{post}', [DestroyController::class, 'destroy'])->name('posts.destroy');
+    Route::delete('/posts/{post}', [DestroyController::class, 'destroy'])->name('posts.destroy')->middleware('user.post.delete');
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/dashboard/liked/posts', [LikedPostsController::class, 'index'])->name('dashboard.liked');
