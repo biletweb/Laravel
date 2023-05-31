@@ -64,5 +64,8 @@
     "Actions": "Дії",
     "Post successfully restore": "Публікацію успішно відновлено",
     "An error occurred on the server while adding an image or post": "Під час додавання зображення або поста на сервері сталася помилка",
-    "An error occurred on the server while deleting an image or post": "Під час видалення зображення або поста на сервері сталася помилка"
+    "An error occurred on the server while deleting an image or post": "Під час видалення зображення або поста на сервері сталася помилка",
+    "Add an image:": "Додати зображення:",
+    "min.": "мін.",
+    "max.": "макс."
 }
