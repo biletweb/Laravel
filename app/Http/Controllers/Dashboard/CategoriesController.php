@@ -23,7 +23,7 @@ class CategoriesController extends Controller
             'title' => 'required|string|max:255'
         ]);
         Category::query()->create($data);
-        session()->flash('message', "Category successfully store");
+        session()->flash('message', "Category successfully create");
         return redirect()->back();
     }
 
