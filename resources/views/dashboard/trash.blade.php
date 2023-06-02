@@ -54,9 +54,11 @@
                             <td><small class="text-body-secondary">{{ $post->created_at->diffForHumans() }}</small></td>
                             <td>
                                 <div class="d-flex justify-content-center">
-                                    <form action="{{ route('dashboard.trash.restore', $post->id) }}">
-                                        <button type="submit" class="btn btn-success btn-sm me-2">{{ __('Restore') }}</button>
-                                    </form>
+                                    @if($post->category->deleted_at == null)
+                                        <form action="{{ route('dashboard.trash.restore', $post->id) }}">
+                                            <button type="submit" class="btn btn-success btn-sm me-2">{{ __('Restore') }}</button>
+                                        </form>
+                                    @endif
                                     <form action="{{ route('dashboard.trash.delete', $post->id) }}">
                                         <button type="submit" class="btn btn-danger btn-sm">{{ __('Delete') }}</button>
                                     </form>
