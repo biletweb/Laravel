@@ -73,5 +73,16 @@
     "You received this email because we received a request to change the password for your account.": "Ви отримали цей email, оскільки ми отримали запит на зміну пароля для вашого облікового запису.",
     "The password reset link will expire in :count minutes.": "Термін дії посилання для зміни пароля закінчиться через :count хвилин.",
     "If you have not sent a password change request, ignore this email.": "Якщо ви не надсилали запит на зміну пароля, проігноруйте цей email.",
-    "Follow the link to change your password:": "Для зміни пароля перейдіть за посиланням:"
+    "Follow the link to change your password:": "Для зміни пароля перейдіть за посиланням:",
+    "Categories": "Категорії",
+    "Add category": "Додати категорію",
+    "Category successfully restore": "Категорію успішно відновлено",
+    "Category successfully deleted": "Категорію успішно видалено",
+    "In the archive": "В архів",
+    "The category has been successfully archived": "Категорію успішно заархівовано",
+    "Archival": "Архівний",
+    "Failed to archive category": "Не вдалося заархівувати категорію",
+    "Unable to restore category": "Не вдалося відновити категорію",
+    "Failed to deleted category": "Не вдалося видалити категорію",
+    "Category successfully create": "Категорію успішно створено"
 }

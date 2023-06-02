@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard\CategoriesController;
 use App\Http\Controllers\Dashboard\CommentPostsController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\LikedPostsController;
@@ -64,6 +65,15 @@ Route::middleware('auth')->group(function () {
         Route::get('/dashboard/posts/trash', 'index')->name('dashboard.trash');
         Route::get('/dashboard/posts/trash/restore/{id}', 'restore')->name('dashboard.trash.restore');
         Route::get('/dashboard/posts/trash/delete/{id}', 'delete')->name('dashboard.trash.delete');
+    });
+
+    Route::controller(CategoriesController::class)->group(function () {
+        Route::get('/dashboard/category', 'index')->name('dashboard.category');
+        Route::post('/dashboard/category/create', 'create')->name('dashboard.category.create');
+        Route::get('/dashboard/category/restore/{id}', 'restore')->name('dashboard.category.restore');
+        Route::get('/dashboard/category/delete/{id}', 'delete')->name('dashboard.category.delete');
+        Route::get('/dashboard/category/forceDelete/{id}', 'forceDelete')->name('dashboard.category.forceDelete');
+
     });
 });
 

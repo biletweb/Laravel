@@ -5,6 +5,7 @@
     <a href="{{ route('dashboard.comment') }}" class="list-group-item list-group-item-action @if(request()->routeIs('dashboard.comment')) active @endif">{{ __('My Comment') }}</a>
     @can('view', auth()->user())
     <hr class="border border-danger-subtle">
+    <a href="{{ route('dashboard.category') }}" class="list-group-item list-group-item-action @if(request()->routeIs('dashboard.category')) active @endif">{{ __('Categories') }}</a>
     <a href="{{ route('dashboard.trash') }}" class="list-group-item list-group-item-action @if(request()->routeIs('dashboard.trash')) active @endif">{{ __('Deleted posts') }}</a>
     @endcan
 </div>
