@@ -12,7 +12,7 @@
                     @else
                         <img src="{{ asset('img/noAvatar.png') }}" class="img-fluid rounded-circle border border-secondary-subtle" style="width: 150px; height: 150px; object-fit: cover;">
                     @endif
-                    <div class="ms-3 me-3 my-auto">
+                    <div class="ms-3 me-3 my-auto mt-4">
                         <label for="avatar" class="form-label">{{ __('Add an image:') }} <small class="text-danger">* {{ __('max.') }} 300/300 px</small></label>
                         <input type="file" name="avatar" class="form-control">
                         @error('avatar')
