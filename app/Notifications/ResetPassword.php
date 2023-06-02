@@ -75,11 +75,11 @@ class ResetPassword extends Notification
     protected function buildMailMessage($url)
     {
         return (new MailMessage)
-            ->subject(Lang::get('Сповіщення про скидання пароля'))
-            ->line(Lang::get('Ви отримали цей електронний лист, оскільки ми отримали запит на зміну пароля для вашого облікового запису.'))
+            ->subject(Lang::get('Password reset request.'))
+            ->line(Lang::get('You received this email because we received a request to change the password for your account.'))
             ->action(Lang::get(''), $url)
-            ->line(Lang::get('Термін дії цього посилання для скидання пароля закінчиться через :count хвилин.', ['count' => config('auth.passwords.'.config('auth.defaults.passwords').'.expire')]))
-            ->line(Lang::get('Якщо ви не надсилали запит на скидання пароля, проігноруйте цей лист.'));
+            ->line(Lang::get('The password reset link will expire in :count minutes.', ['count' => config('auth.passwords.'.config('auth.defaults.passwords').'.expire')]))
+            ->line(Lang::get('If you have not sent a password change request, ignore this email.'));
     }
 
     /**
