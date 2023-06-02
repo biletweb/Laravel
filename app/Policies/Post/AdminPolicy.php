@@ -28,7 +28,7 @@ class AdminPolicy
      */
     public function create(User $user): bool
     {
-        //
+        return $user->name == 'admin';
     }
 
     /**
@@ -44,7 +44,7 @@ class AdminPolicy
      */
     public function delete(User $user, User $model): bool
     {
-        //
+        return $model->name == 'admin';
     }
 
     /**

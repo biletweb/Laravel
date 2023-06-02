@@ -7,4 +7,4 @@
 @endforeach
 
 {{-- Subcopy --}}
-@lang("Для скидання пароля перейдіть за посиланням:") {{ $displayableActionUrl }}
+@lang("Follow the link to change your password:") {{ $displayableActionUrl }}
