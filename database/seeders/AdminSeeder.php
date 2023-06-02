@@ -3,12 +3,10 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use App\Models\Category;
-use App\Models\Post;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class AdminSeeder extends Seeder
 {
     /**
      * Seed the application's database.
@@ -23,12 +21,5 @@ class DatabaseSeeder extends Seeder
                 'password' => bcrypt('admin'),
             ]
         );
-
-        Category::factory()->create(['title' => 'Category 1']);
-        Category::factory()->create(['title' => 'Category 2']);
-        Category::factory()->create(['title' => 'Category 3']);
-
-        Post::factory(20)->create();
-
     }
 }
