@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\PostImage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CategoriesController extends Controller
 {
@@ -66,6 +68,7 @@ class CategoriesController extends Controller
         $this->authorize('forceDelete', auth()->user());
         \DB::beginTransaction();
         try {
+            $postImages = PostImage::query()->join('posts', 'posts.id', '=', 'post_images.post_id')->where('posts.deleted_at', '!=', null)->get();
             Category::query()->onlyTrashed()->where('id', $id)->forceDelete();
             Post::query()->onlyTrashed()->where('category_id', $id)->forceDelete();
             \DB::commit();
@@ -73,6 +76,10 @@ class CategoriesController extends Controller
             \DB::rollback();
             session()->flash('error_message', "Failed to deleted category");
             return redirect()->back();
+        }
+        foreach ($postImages as $image) {
+
+            Storage::disk('public')->delete($image->image);
         }
         session()->flash('message', "Category successfully deleted");
         return redirect()->back();
