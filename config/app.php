@@ -22,7 +22,7 @@ return [
     |
     */
 
-    'app_version' => env('APP_VERSION', 'billetweb v1.1'),
+    'app_version' => env('APP_VERSION', 'billetweb v1.0'),
 
     /*
     |--------------------------------------------------------------------------
