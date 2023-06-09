@@ -219,11 +219,12 @@
                             <h1 class="modal-title fs-5" id="staticBackdropLabel">{{ __('Answer Comment') }}</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <form action="{{ route('comments.answer', $comment->id) }}?post_id={{ $post->id }}" method="POST">
+                        <form action="{{ route('comments.answer', $comment->id) }}" method="POST">
                             <div class="modal-body">
                                 @csrf
                                 <div>
                                     <textarea name="content" class="form-control @error('content') is-invalid @enderror" rows="5" placeholder="{{ __('Content Post') }}"></textarea>
+                                    <input type="hidden" name="post_id" value="{{ $post->id }}">
                                 </div>
                                 @error('content')
                                 <div class="alert alert-danger mt-1">{{ $message }}</div>
