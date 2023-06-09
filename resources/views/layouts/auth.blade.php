@@ -51,26 +51,7 @@
         <div class="col-md-4 d-flex align-items-center">
             <span class="mb-3 mb-md-0 text-body-secondary">{{ date('Y') }} {{ config('app.app_version') }}</span>
         </div>
-        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-            <li class="me-3"><a class="text-body-secondary" href="#" title="Telegram">
-                    <svg class="bi" width="24" height="24" fill="currentColor">
-                        <use xlink:href="{{ asset('icons/bootstrap-icons.svg#telegram') }}"/>
-                    </svg>
-                </a>
-            </li>
-            <li class="me-3"><a class="text-body-secondary" href="#" title="Facebook">
-                    <svg class="bi" width="24" height="24" fill="currentColor">
-                        <use xlink:href="{{ asset('icons/bootstrap-icons.svg#facebook') }}"/>
-                    </svg>
-                </a>
-            </li>
-            <li><a class="text-body-secondary" href="#" title="Twitter">
-                    <svg class="bi" width="24" height="24" fill="currentColor">
-                        <use xlink:href="{{ asset('icons/bootstrap-icons.svg#twitter') }}"/>
-                    </svg>
-                </a>
-            </li>
-        </ul>
+        @include('include.social')
     </footer>
 
 </div>

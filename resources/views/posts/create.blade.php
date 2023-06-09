@@ -2,7 +2,7 @@
 @section('content')
     <form method="POST" action="{{ route('posts.store') }}" enctype="multipart/form-data">
         @csrf
-        <div class="p-4 bg-body-tertiary rounded-2">
+        <div class="p-4 bg-body-tertiary rounded-2 mb-4">
             <h2 class="fw-bold">{{ __('Add Post') }}</h2>
 
             <hr class="border-1 mb-4">
