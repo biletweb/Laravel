@@ -3,7 +3,7 @@
     <form method="POST" action="{{ route('posts.update', $post->id) }}">
         @csrf
         @method('PATCH')
-        <div class="p-4 bg-body-tertiary rounded-2">
+        <div class="p-4 bg-body-tertiary rounded-2 mb-4">
             <h2 class="fw-bold">{{ __('Edit Post') }}</h2>
 
             <hr class="border-1 mb-4">
